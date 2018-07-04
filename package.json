@@ -4,21 +4,28 @@
   "version": "0.0.1",
   "main": "./src/index.js",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.5",
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-2": "^6.24.1",
+    "chokidar": "^2.0.4",
     "eslint": "^5.0.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-babel": "^5.1.0",
-    "eslint-plugin-import": "^2.13.0"
+    "eslint-plugin-import": "^2.13.0",
+    "terminate": "^2.1.0"
   },
   "dependencies": {
     "restify": "^7.2.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "./node_modules/.bin/babel-node ./src/index.js"
+    "start": "npm run build && node ./build/index.js",
+    "build": "npm run clean && npm run build-babel",
+    "build-babel": "./node_modules/.bin/babel -d ./build ./src -s",
+    "clean": "rm -rf ./build && mkdir build",
+    "watch": "node index.js"
   },
   "repository": {
     "type": "git",

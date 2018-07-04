@@ -10,6 +10,7 @@
       "root": ["."],
       "alias": {
         "lib": "./src/lib",
+        "helpers": "./src/helpers"
       }
     }]
   ]
